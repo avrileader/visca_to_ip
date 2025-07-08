@@ -1,5 +1,5 @@
 [package]
-name = "visca-to-ip"
+name = "visca_to_ip"
 version = "0.1.0"
 edition = "2021"
 
