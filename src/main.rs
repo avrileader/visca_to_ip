@@ -13,7 +13,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let buf = &mut buf[..amt];
         let head: [u8; 8]= [01,00,00,09,00,00,00,01];
         let merged = [&head[..], &buf[..]].concat();
+        let clear: [u8; 9]= [02,00,00,01,00,00,00,00,01];
         println!("source port: {}",src);
+        send_socket.send_to(&clear, config.remote.clone()).expect("send failed");
         send_socket.send_to(&merged, config.remote.clone()).expect("send failed");
     }
 }
